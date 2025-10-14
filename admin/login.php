@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="login-info">
                 <p><a href="../index.php">← Retour au site</a></p>
-                <p><small>Par défaut: admin / admin123</small></p>
+                <p><small>Par défaut: lulu / admin123</small></p>
             </div>
         </div>
     </div>

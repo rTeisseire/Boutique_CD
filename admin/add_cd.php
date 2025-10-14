@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $upload_path)) {
                     // Supprimer l'ancienne image si en mode édition
-                    if ($mode === 'edit' && $cd['image'] && $cd['image'] !== 'default.jpg') {
+                    if ($mode === 'edit' && $cd['image'] && $cd['image'] !== 'default.png') {
                         $old_path = '../images/pochettes/' . $cd['image'];
                         if (file_exists($old_path)) {
                             unlink($old_path);
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $erreur = 'Format d\'image non autorisé (jpg, jpeg, png, gif uniquement)';
             }
         } elseif ($mode === 'add') {
-            $image_name = 'default.jpg';
+            $image_name = 'default.png';
         }
 
         if (!$erreur) {
@@ -166,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <img src="../images/pochettes/<?= e($cd['image']) ?>"
                                  alt="Pochette actuelle"
                                  style="max-width: 200px; border-radius: 5px;"
-                                 onerror="this.src='../images/pochettes/default.jpg'">
+                                 onerror="this.src='../images/pochettes/default.png'">
                         </div>
                     <?php endif; ?>
                     <input type="file"

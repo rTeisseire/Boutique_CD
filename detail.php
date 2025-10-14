@@ -51,7 +51,7 @@ $nb_panier = array_sum($_SESSION['panier']);
             <div class="cd-image-large">
                 <img src="images/pochettes/<?= e($cd['image']) ?>"
                      alt="<?= e($cd['titre']) ?>"
-                     onerror="this.src='images/pochettes/default.jpg'">
+                     onerror="this.src='images/pochettes/default.png'">
             </div>
 
             <div class="cd-details-info">

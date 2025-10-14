@@ -21,7 +21,7 @@ if (isset($_GET['supprimer']) && isset($_GET['id'])) {
         if ($stmt->execute([$id])) {
             // Supprimer l'image si elle existe
             $image_path = '../images/pochettes/' . $cd['image'];
-            if (file_exists($image_path) && $cd['image'] !== 'default.jpg') {
+            if (file_exists($image_path) && $cd['image'] !== 'default.png') {
                 unlink($image_path);
             }
             $message = 'CD supprimé avec succès';
@@ -98,7 +98,7 @@ if (isset($_GET['success'])) {
                             <img src="../images/pochettes/<?= e($cd['image']) ?>"
                                  alt="<?= e($cd['titre']) ?>"
                                  class="admin-thumb"
-                                 onerror="this.src='../images/pochettes/default.jpg'">
+                                 onerror="this.src='../images/pochettes/default.png'">
                         </td>
                         <td><?= e($cd['titre']) ?></td>
                         <td><?= e($cd['auteur']) ?></td>

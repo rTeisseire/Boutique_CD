@@ -67,7 +67,7 @@ $nb_panier = array_sum($_SESSION['panier']);
                                 <img src="images/pochettes/<?= e($article['image']) ?>"
                                      alt="<?= e($article['titre']) ?>"
                                      class="panier-thumb"
-                                     onerror="this.src='images/pochettes/default.jpg'">
+                                     onerror="this.src='images/pochettes/default.png'">
                             </td>
                             <td><?= e($article['titre']) ?></td>
                             <td><?= e($article['auteur']) ?></td>

@@ -44,7 +44,7 @@ $nb_panier = array_sum($_SESSION['panier']);
                     <a href="detail.php?id=<?= $cd['id'] ?>">
                         <img src="images/pochettes/<?= e($cd['image']) ?>"
                              alt="<?= e($cd['titre']) ?>"
-                             onerror="this.src='images/pochettes/default.jpg'">
+                             onerror="this.src='images/pochettes/default.png'">
                     </a>
                     <div class="cd-info">
                         <h3><?= e($cd['titre']) ?></h3>

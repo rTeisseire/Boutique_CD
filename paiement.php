@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/functions.php';
+require_once 'include.php';
 
 // Rediriger si le panier est vide
 if (empty($_SESSION['panier'])) {
@@ -9,7 +9,6 @@ if (empty($_SESSION['panier'])) {
 
 $articles = getPanierDetails();
 $total = calculerTotal();
-$nb_panier = array_sum($_SESSION['panier']);
 $erreur = '';
 $succes = false;
 
@@ -37,16 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🎵 CD Shop</h1>
-            <nav>
-                <a href="index.php">Accueil</a>
-                <a href="panier.php">🛒 Panier (<?= $nb_panier ?>)</a>
-                <a href="admin/login.php">Admin</a>
-            </nav>
-        </div>
-    </header>
+    <?php require_once 'includes/header.php'; ?>
 
     <main class="container">
         <h2>Paiement</h2>
@@ -127,12 +117,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         <?php endif; ?>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 CD Shop - Tous droits réservés</p>
-        </div>
-    </footer>
 
     <script>
         // Formatage automatique du numéro de carte

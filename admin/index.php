@@ -107,12 +107,12 @@ if (isset($_GET['success'])) {
                         <td><?= date('d/m/Y', strtotime($cd['date_ajout'])) ?></td>
                         <td>
                             <a href="add_cd.php?edit=<?= $cd['id'] ?>" class="btn btn-secondary btn-small">
-                                ✏️ Modifier
+                                Modifier
                             </a>
                             <a href="?supprimer=1&id=<?= $cd['id'] ?>"
                                class="btn btn-danger btn-small"
                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce CD ?')">
-                                🗑️ Supprimer
+                                Supprimer
                             </a>
                         </td>
                     </tr>
@@ -120,11 +120,5 @@ if (isset($_GET['success'])) {
             </tbody>
         </table>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 CD Shop - Administration</p>
-        </div>
-    </footer>
 </body>
 </html>

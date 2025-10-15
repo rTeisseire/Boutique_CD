@@ -97,9 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <header>
         <div class="container">
-            <h1>🎵 CD Shop - Administration</h1>
+            <h1>CD Shop - Administration</h1>
             <nav>
-                <span>👤 <?= e($_SESSION['admin_username']) ?></span>
+                <span><?= e($_SESSION['admin_username']) ?></span>
                 <a href="index.php">Retour à la liste</a>
                 <a href="logout.php">Déconnexion</a>
             </nav>
@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
 
     <main class="container">
-        <h2><?= $mode === 'edit' ? '✏️ Modifier' : '➕ Ajouter' ?> un CD</h2>
+        <h2><?= $mode === 'edit' ? 'Modifier' : 'Ajouter' ?> un CD</h2>
 
         <?php if ($erreur): ?>
             <div class="alert error"><?= e($erreur) ?></div>
@@ -180,17 +180,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="form-actions">
                     <a href="index.php" class="btn btn-secondary">Annuler</a>
                     <button type="submit" class="btn btn-primary btn-large">
-                        <?= $mode === 'edit' ? '💾 Enregistrer les modifications' : '➕ Ajouter le CD' ?>
+                        <?= $mode === 'edit' ? 'Enregistrer les modifications' : 'Ajouter le CD' ?>
                     </button>
                 </div>
             </form>
         </div>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 CD Shop - Administration</p>
-        </div>
-    </footer>
 </body>
 </html>

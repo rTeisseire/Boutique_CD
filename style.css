@@ -384,15 +384,6 @@ main {
     font-weight: bold;
 }
 
-/* Footer */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 3rem;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .cd-detail,

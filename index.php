@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/functions.php';
+require_once 'include.php';
 
 // Gestion de l'ajout au panier
 if (isset($_POST['ajouter_panier'])) {
@@ -9,7 +9,6 @@ if (isset($_POST['ajouter_panier'])) {
 }
 
 $cds = getAllCDs();
-$nb_panier = array_sum($_SESSION['panier']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -20,16 +19,6 @@ $nb_panier = array_sum($_SESSION['panier']);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🎵 CD Shop</h1>
-            <nav>
-                <a href="index.php">Accueil</a>
-                <a href="panier.php">🛒 Panier (<?= $nb_panier ?>)</a>
-                <a href="admin/login.php">Admin</a>
-            </nav>
-        </div>
-    </header>
 
     <main class="container">
         <?php if (isset($message)): ?>
@@ -43,8 +32,8 @@ $nb_panier = array_sum($_SESSION['panier']);
                 <div class="cd-card">
                     <a href="detail.php?id=<?= $cd['id'] ?>">
                         <img src="images/pochettes/<?= e($cd['image']) ?>"
-                             alt="<?= e($cd['titre']) ?>"
-                             onerror="this.src='images/pochettes/default.png'">
+                            alt="<?= e($cd['titre']) ?>"
+                            onerror="this.src='images/pochettes/default.jpg'">
                     </a>
                     <div class="cd-info">
                         <h3><?= e($cd['titre']) ?></h3>
@@ -65,11 +54,5 @@ $nb_panier = array_sum($_SESSION['panier']);
             <?php endforeach; ?>
         </div>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 CD Shop - Tous droits réservés</p>
-        </div>
-    </footer>
 </body>
 </html>

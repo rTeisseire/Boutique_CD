@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/functions.php';
+require_once 'include.php';
 
 if (!isset($_GET['id'])) {
     header('Location: index.php');
@@ -20,7 +20,6 @@ if (isset($_POST['ajouter_panier'])) {
     $message = "CD ajouté au panier !";
 }
 
-$nb_panier = array_sum($_SESSION['panier']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -31,16 +30,6 @@ $nb_panier = array_sum($_SESSION['panier']);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🎵 CD Shop</h1>
-            <nav>
-                <a href="index.php">Accueil</a>
-                <a href="panier.php">🛒 Panier (<?= $nb_panier ?>)</a>
-                <a href="admin/login.php">Admin</a>
-            </nav>
-        </div>
-    </header>
 
     <main class="container">
         <?php if (isset($message)): ?>
@@ -83,11 +72,5 @@ $nb_panier = array_sum($_SESSION['panier']);
             </div>
         </div>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 CD Shop - Tous droits réservés</p>
-        </div>
-    </footer>
 </body>
 </html>

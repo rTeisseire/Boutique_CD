@@ -26,7 +26,7 @@ if (isset($_POST['ajouter_panier'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= e($cd['titre']) ?> - CD Shop</title>
+    <title><?= e($cd['titre']) ?>CD Shop</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -64,10 +64,10 @@ if (isset($_POST['ajouter_panier'])) {
                 <div class="actions-detail">
                     <form method="post">
                         <button type="submit" name="ajouter_panier" class="btn btn-primary btn-large">
-                            🛒 Ajouter au panier
+                            Ajouter au panier
                         </button>
                     </form>
-                    <a href="index.php" class="btn btn-secondary">← Retour au catalogue</a>
+                    <a href="index.php" class="btn btn-secondary">Retour au catalogue</a>
                 </div>
             </div>
         </div>

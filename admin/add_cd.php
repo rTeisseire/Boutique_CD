@@ -1,5 +1,5 @@
 <?php
-require_once '../includes/functions.php';
+require_once '../include_admin.php';
 
 // Vérifier l'authentification
 if (!isAdmin()) {
@@ -95,17 +95,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style_admin.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>CD Shop - Administration</h1>
-            <nav>
-                <span><?= e($_SESSION['admin_username']) ?></span>
-                <a href="index.php">Retour à la liste</a>
-                <a href="logout.php">Déconnexion</a>
-            </nav>
-        </div>
-    </header>
-
     <main class="container">
         <h2><?= $mode === 'edit' ? 'Modifier' : 'Ajouter' ?> un CD</h2>
 

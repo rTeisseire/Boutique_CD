@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <?php if ($succes): ?>
             <div class="alert success">
-                <h3>✅ Paiement validé !</h3>
+                <h3>Paiement validé !</h3>
                 <p>Votre commande a été confirmée. Merci pour votre achat !</p>
                 <a href="index.php" class="btn btn-primary">Retour à l'accueil</a>
             </div>
@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="info-test">
-                <h4>🧪 Mode test - Exemples de cartes valides :</h4>
+                <h4>Mode test - Exemples de cartes valides :</h4>
                 <ul>
                     <li>1234 5678 9012 3451 (expire 12/26 ou plus tard)</li>
                     <li>5234 5678 9012 3455 (expire 06/28 ou plus tard)</li>

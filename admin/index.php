@@ -1,5 +1,5 @@
 <?php
-require_once '../includes/functions.php';
+require_once '../include_admin.php';
 
 // Vérifier l'authentification
 if (!isAdmin()) {
@@ -45,21 +45,10 @@ if (isset($_GET['success'])) {
     <link rel="stylesheet" href="style_admin.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🎵 CD Shop - Administration</h1>
-            <nav>
-                <span>👤 <?= e($_SESSION['admin_username']) ?></span>
-                <a href="../index.php">Voir le site</a>
-                <a href="logout.php">Déconnexion</a>
-            </nav>
-        </div>
-    </header>
-
     <main class="container">
         <div class="admin-header">
             <h2>Gestion des CD</h2>
-            <a href="add_cd.php" class="btn btn-primary">➕ Ajouter un CD</a>
+            <a href="add_cd.php" class="btn btn-primary">Ajouter un CD</a>
         </div>
 
         <?php if ($message): ?>

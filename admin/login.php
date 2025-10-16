@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="login-container">
         <div class="login-box">
-            <h1>🔐 Administration</h1>
+            <h1>Administration</h1>
             <h2>CD Shop</h2>
 
             <?php if ($erreur): ?>

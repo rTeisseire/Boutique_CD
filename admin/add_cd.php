@@ -29,10 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $auteur = trim($_POST['auteur'] ?? '');
     $genre = trim($_POST['genre'] ?? '');
     $prix = floatval($_POST['prix'] ?? 0);
+    $annee_sortie = intval($_POST['annee_sortie'] ?? 0);
 
     // Validation
-    if (empty($titre) || empty($auteur) || empty($genre) || $prix <= 0) {
-        $erreur = 'Tous les champs sont obligatoires et le prix doit être positif';
+    if (empty($titre) || empty($auteur) || empty($genre) || $prix <= 0 || $annee_sortie <= 1900) {
+        $erreur = 'Tous les champs sont obligatoires, le prix doit être positif et l\'année suppérieur ';
     } else {
         $image_name = $cd['image'] ?? '';
 
@@ -69,12 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db = getDB();
 
             if ($mode === 'edit') {
-                $stmt = $db->prepare('UPDATE cds SET titre = ?, auteur = ?, genre = ?, prix = ?, image = ? WHERE id = ?');
-                $stmt->execute([$titre, $auteur, $genre, $prix, $image_name, $cd['id']]);
+                $stmt = $db->prepare('UPDATE cds SET titre = ?, auteur = ?, genre = ?, prix = ?, image = ?, annee_sortie = ? WHERE id = ?');
+                $stmt->execute([$titre, $auteur, $genre, $prix, $image_name, $annee_sortie, $cd['id']]);
                 $succes = 'CD modifié avec succès';
             } else {
-                $stmt = $db->prepare('INSERT INTO cds (titre, auteur, genre, prix, image) VALUES (?, ?, ?, ?, ?)');
-                $stmt->execute([$titre, $auteur, $genre, $prix, $image_name]);
+                $stmt = $db->prepare('INSERT INTO cds (titre, auteur, genre, prix, image, annee_sortie) VALUES (?, ?, ?, ?, ?, ?)');
+                $stmt->execute([$titre, $auteur, $genre, $prix, $image_name, $annee_sortie]);
                 $succes = 'CD ajouté avec succès';
             }
 
@@ -111,40 +112,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="form-group">
                     <label for="titre">Titre du CD * :</label>
                     <input type="text"
-                           id="titre"
-                           name="titre"
-                           value="<?= $cd ? e($cd['titre']) : '' ?>"
-                           required>
+                        id="titre"
+                        name="titre"
+                        value="<?= $cd ? e($cd['titre']) : '' ?>"
+                        required>
                 </div>
 
                 <div class="form-group">
                     <label for="auteur">Artiste / Groupe * :</label>
                     <input type="text"
-                           id="auteur"
-                           name="auteur"
-                           value="<?= $cd ? e($cd['auteur']) : '' ?>"
-                           required>
+                        id="auteur"
+                        name="auteur"
+                        value="<?= $cd ? e($cd['auteur']) : '' ?>"
+                        required>
                 </div>
 
                 <div class="form-group">
                     <label for="genre">Genre musical * :</label>
                     <input type="text"
-                           id="genre"
-                           name="genre"
-                           value="<?= $cd ? e($cd['genre']) : '' ?>"
-                           placeholder="Rock, Pop, Jazz, etc."
-                           required>
+                        id="genre"
+                        name="genre"
+                        value="<?= $cd ? e($cd['genre']) : '' ?>"
+                        placeholder="Rock, Pop, Jazz, etc."
+                        required>
                 </div>
 
                 <div class="form-group">
                     <label for="prix">Prix (€) * :</label>
                     <input type="number"
-                           id="prix"
-                           name="prix"
-                           value="<?= $cd ? $cd['prix'] : '' ?>"
-                           step="0.01"
-                           min="0.01"
-                           required>
+                        id="prix"
+                        name="prix"
+                        value="<?= $cd ? $cd['prix'] : '' ?>"
+                        step="0.01"
+                        min="0.01"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="annee_sortie">Année de sortie * :</label>
+                    <input type="number"
+                        id="annee_sortie"
+                        name="annee_sortie"
+                        value="<?= $cd ? $cd['annee_sortie'] : '' ?>"
+                        min="1900"
+                        max="2099"
+                        step="1"
+                        required>
                 </div>
 
                 <div class="form-group">
@@ -153,16 +166,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="current-image">
                             <p>Image actuelle :</p>
                             <img src="../images/pochettes/<?= e($cd['image']) ?>"
-                                 alt="Pochette actuelle"
-                                 style="max-width: 200px; border-radius: 5px;"
-                                 onerror="this.src='../images/pochettes/default.png'">
+                                alt="Pochette actuelle"
+                                style="max-width: 200px; border-radius: 5px;"
+                                onerror="this.src='../images/pochettes/default.png'">
                         </div>
                     <?php endif; ?>
                     <input type="file"
-                           id="image"
-                           name="image"
-                           accept="image/jpeg,image/png,image/gif,image/jpg"
-                           <?= $mode === 'add' ? 'required' : '' ?>>
+                        id="image"
+                        name="image"
+                        accept="image/jpeg,image/png,image/gif,image/jpg"
+                        <?= $mode === 'add' ? 'required' : '' ?>>
                     <small>Formats acceptés : JPG, JPEG, PNG, GIF</small>
                 </div>
 

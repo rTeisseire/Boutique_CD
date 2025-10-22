@@ -74,6 +74,7 @@ if (isset($_GET['success'])) {
                     <th>Titre</th>
                     <th>Artiste</th>
                     <th>Genre</th>
+                    <th>Année de sortie</th>
                     <th>Prix</th>
                     <th>Date d'ajout</th>
                     <th>Actions</th>
@@ -85,13 +86,14 @@ if (isset($_GET['success'])) {
                         <td><?= $cd['id'] ?></td>
                         <td>
                             <img src="../images/pochettes/<?= e($cd['image']) ?>"
-                                 alt="<?= e($cd['titre']) ?>"
-                                 class="admin-thumb"
-                                 onerror="this.src='../images/pochettes/default.png'">
+                                alt="<?= e($cd['titre']) ?>"
+                                class="admin-thumb"
+                                onerror="this.src='../images/pochettes/default.png'">
                         </td>
                         <td><?= e($cd['titre']) ?></td>
                         <td><?= e($cd['auteur']) ?></td>
                         <td><?= e($cd['genre']) ?></td>
+                        <td><?= intval($cd['annee_sortie']) ?></td>
                         <td><?= formatPrix($cd['prix']) ?></td>
                         <td><?= date('d/m/Y', strtotime($cd['date_ajout'])) ?></td>
                         <td>

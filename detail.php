@@ -39,8 +39,8 @@ if (isset($_POST['ajouter_panier'])) {
         <div class="cd-detail">
             <div class="cd-image-large">
                 <img src="images/pochettes/<?= e($cd['image']) ?>"
-                     alt="<?= e($cd['titre']) ?>"
-                     onerror="this.src='images/pochettes/default.png'">
+                    alt="<?= e($cd['titre']) ?>"
+                    onerror="this.src='images/pochettes/default.png'">
             </div>
 
             <div class="cd-details-info">
@@ -54,6 +54,11 @@ if (isset($_POST['ajouter_panier'])) {
                 <div class="detail-row">
                     <strong>Genre :</strong>
                     <span><?= e($cd['genre']) ?></span>
+                </div>
+
+                <div class="detail-row">
+                    <strong>Année de sortie :</strong>
+                    <span><?= intval($cd['annee_sortie']) ?></span>
                 </div>
 
                 <div class="detail-row">

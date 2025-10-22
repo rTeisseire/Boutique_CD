@@ -33,12 +33,13 @@ $cds = getAllCDs();
                     <a href="detail.php?id=<?= $cd['id'] ?>">
                         <img src="images/pochettes/<?= e($cd['image']) ?>"
                             alt="<?= e($cd['titre']) ?>"
-                            onerror="this.src='images/pochettes/default.jpg'">
+                            onerror="this.src='images/pochettes/default.png'">
                     </a>
                     <div class="cd-info">
                         <h3><?= e($cd['titre']) ?></h3>
                         <p class="auteur"><?= e($cd['auteur']) ?></p>
                         <p class="genre"><?= e($cd['genre']) ?></p>
+                        <p class="annee_sortie"><?= intval($cd['annee_sortie']) ?></p>
                         <p class="prix"><?= formatPrix($cd['prix']) ?></p>
                         <div class="actions">
                             <a href="detail.php?id=<?= $cd['id'] ?>" class="btn btn-secondary">Détails</a>

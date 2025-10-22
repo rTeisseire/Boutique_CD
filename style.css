@@ -131,6 +131,13 @@ main {
     font-style: italic;
 }
 
+.cd-info .annee_sortie {
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
 .cd-info .prix {
     font-size: 1.3rem;
     font-weight: bold;

@@ -1,3 +1,14 @@
+<?php
+// session_start();
+
+// Vérifie si l'utilisateur admin est connecté
+if (!isset($_SESSION['admin_username'])) {
+    // Redirige vers la page de connexion admin
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

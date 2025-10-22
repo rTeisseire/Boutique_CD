@@ -145,6 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         value="<?= $cd ? $cd['prix'] : '' ?>"
                         step="0.01"
                         min="0.01"
+                        max="99999999.99"
                         required>
                 </div>
 
